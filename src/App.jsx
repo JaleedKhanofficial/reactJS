@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import {Routes,Route,Link} from "react-router-dom";
 import Home from './assets/pages/Home';
 import Create from './assets/pages/Create';
+import Edit from './assets/pages/Edit';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/create' element={<Create />} />
+          <Route path='/edit/:id' element={<Edit />} />
         </Routes>
 
       </div>

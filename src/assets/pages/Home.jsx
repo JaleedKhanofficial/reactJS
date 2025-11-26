@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import http from "../../../http";
+import { Link } from "react-router-dom";
 
 export default function Home(){
     const [users, setUsers] = useState([]);
@@ -35,7 +36,9 @@ export default function Home(){
                         <td>{user.name}</td>
                         <td>{user.created_at}</td>
                         <td>{user.email}</td>
-                        <td>EDIT</td>
+                        <td>
+                            <Link className="btn btn-info" to={{pathname:'/edit/'+user.id}}>Edit</Link>
+                        </td>
                     </tr>
                     ))}
                 </tbody>
