@@ -1,3 +1,21 @@
+import { useEffect, useState } from "react"
+import http from "../../../http"
+import { useNavigate, useParams } from "react-router-dom";
+
+export default function View(props) {
+    const navigate = useNavigate();
+    const [inputs, setInputs] = useState({});
+    const {id} = useParams();
+
+    useEffect(()=>{
+        fetchUser();
+    },[]);
+
+    // this function is to fetch user data to provide id. In my form there is only two fields. name and email 
+    const fetchUser = () => {
+        http.get('/users/'+id+'/edit').then((res)=>{
+            setInputs({
+                name:res.data.name,
                 email:res.data.email,
             });
         });
